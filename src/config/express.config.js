@@ -1,21 +1,12 @@
 const express = require("express")
+const routerConfig = require("./router.config")
 
 
 const app = express()
 
 
-app.get('/user', (req, res, next) => {
+// app.use(routerConfig)
+app.use("/api/v1/", routerConfig)
 
-    res.json({
-        data: user,
-        message: "Success",
-        status: "SUCCESS FULL",
-        options: null
-    })
-})
-// app.post()
-// app.patch()
-// app.put()
-// app.delete()
 
 module.exports = app
