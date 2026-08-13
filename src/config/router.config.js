@@ -1,108 +1,21 @@
 const router = require("express").Router()
-
-
-
-
-// router.get("/", (req, res, next) => {
-
-//     const data = {
-//         data: [
-//             {
-//                 id: 1,
-//                 name: "Nishan Rai",
-//                 email: "nishan@gmail.com"
-//             },
-//             {
-//                 id: 2,
-//                 name: "Sita Sharma",
-//                 email: "sita.sharma@gmail.com"
-//             },
-//             {
-//                 id: 3,
-//                 name: "Ramesh Thapa",
-//                 email: "ramesh.thapa@gmail.com"
-//             },
-//             {
-//                 id: 4,
-//                 name: "Anita Gurung",
-//                 email: "anita.gurung@gmail.com"
-//             },
-//             {
-//                 id: 5,
-//                 name: "Bikash Shrestha",
-//                 email: "bikash.shrestha@gmail.com"
-//             },
-//             {
-//                 id: 6,
-//                 name: "Sunita Basnet",
-//                 email: "sunita.basnet@gmail.com"
-//             },
-//             {
-//                 id: 7,
-//                 name: "Prakash Adhikari",
-//                 email: "prakash.adhikari@gmail.com"
-//             },
-//             {
-//                 id: 8,
-//                 name: "Kabita Karki",
-//                 email: "kabita.karki@gmail.com"
-//             },
-//             {
-//                 id: 9,
-//                 name: "Deepak Magar",
-//                 email: "deepak.magar@gmail.com"
-//             },
-//             {
-//                 id: 10,
-//                 name: "Rita Poudel",
-//                 email: "rita.poudel@gmail.com"
-//             }
-//         ],
-//         message: "Users retrieved successfully",
-//         status: "Success"
-
-//     };
-
-//     res.json(
-//         {
-//             data: data,
-//             message: "Health OK",
-//             status: "Success",
-//             options: null
-//         }
-//     )
-// })
-// const firstLoggeIn=(req,res,next)=>{
-//     console.log('Time:', Date.now());
-//     next()
-// }
-
-// const isRoleCheck=(req,res,next)=>{
-//     console.log("You are Admin")
-//     next()
-// }
-
-router.post("/register",(req,res,next)=>{
-    let data= req.body
+const authRouter=require("../modules/auth/auth.router")
+const userRouter=require("../modules/user/users.router")
+router.get("/health",(req,res,next)=>{
     res.status(200).json(
         {
-            data:data,
-            message:"Register Successfully",
+            data:null,
+            message:"health check",
             status:"Success",
             options:null
         }
     )}
 )
-router.get("/:id", (req, res, next) => {
 
 
-    let params = req.params
-    let query= req.query
-    let headers = req.headers
-    let body=req.body
-    res.json({
-        data:{params,query,headers, body}
-    })
-})
+// localhost:5000/api/auth/
+
+router.use("/auth",authRouter)
+router.use("/user",userRouter)
 
 module.exports = router
