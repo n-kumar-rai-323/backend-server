@@ -31,3 +31,31 @@
 - user role fatch 
 - update
 - delete 
+
+
+
+
+Cores 
+-AuthRegister...
+    MVC 
+    creat
+    read
+    delete
+-User 
+MVC 
+    creat
+    read
+    delete
+-product
+MVC 
+    creat
+    read
+    delete
+-category 
+-brand
+-carts
+-order
+-transactins
+-rate and review 
+-inventories 
+-offers 
