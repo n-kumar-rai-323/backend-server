@@ -2,7 +2,7 @@ const Joi = require("joi")
 
 
 
-const UserRegisterDTO=joi.object({
+const UserRegisterDTO=Joi.object({
     name:Joi.string().min(2).max(50).required(),
     email:Joi.string().email().required(),
     password:Joi.string().required(),
@@ -10,4 +10,4 @@ const UserRegisterDTO=joi.object({
     phone:Joi.string().allow("").optional()
 })
 
-module.exports=UserRegisterDTO
+module.exports={UserRegisterDTO}

@@ -1,9 +1,10 @@
 const authRouter = require("express").Router()
 const authCtrl=require("./auth.controller")
+const bodyValidator=require("../../middlewares/request-validator.middleware")
+const {UserRegisterDTO}=require("./auth.validator")
 
 
-
-authRouter.post("/register",authCtrl.register)
+authRouter.post("/register",bodyValidator(UserRegisterDTO),authCtrl.register)
 authRouter.post("/login", authCtrl.login)
 
 

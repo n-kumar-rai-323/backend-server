@@ -50,3 +50,9 @@ student1.study()
 
 const data ="Nishan"
 console.log(typeof(data))
+
+
+{
+    "name":"Nishan Rai",
+    "email":"infoksjfjas"
+}
