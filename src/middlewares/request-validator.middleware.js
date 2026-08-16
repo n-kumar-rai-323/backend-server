@@ -7,14 +7,17 @@ const bodyValidator=(schema)=>{
         req.body=response
         next()
       }catch(exception){
-        let messageBag={}
-        if(exception.details){
-            exception.details.map((val)=>{
-                messageBag[val.context.label]=val.message;
-            })
-        }
+        // let messageBag={}
+        // if(exception.details){
+        //     exception.details.map((val)=>{
+        //         messageBag[val.context.label]=val.message;
+        //     })
+        // }
+        // console.log(exception)
+        console.log({details:exception.details})
+        console.log({details:exception.details[0].context})
         res.status(422).json({
-            error:messageBag,
+            error:null,
             message:"Please Check Data",
             status:"FAILED",
             options:null
